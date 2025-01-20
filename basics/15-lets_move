@@ -1,2 +1,2 @@
 #!/bin/bash
-ls | grep "~$" | mv {} /tmp/u
+ls | grep "^[A-Z]" | mv {} /tmp/u

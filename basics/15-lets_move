@@ -1,2 +1,2 @@
 #!/bin/bash
-vm $(ls | grep "*~") /tmp/u/
+mv $(ls | grep "*~") /tmp/u/

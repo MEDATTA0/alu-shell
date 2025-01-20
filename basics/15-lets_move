@@ -1,2 +1,2 @@
 #!/bin/bash
-mv My_file Elif_ym /tmp/u
+ls | grep "~$" | mv {} /tmp/u

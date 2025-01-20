@@ -1,2 +1,2 @@
 #!/bin/bash
-mv $(ls | grep "*~") /tmp/u/
+mv My_file Elif_ym /tmp/u/

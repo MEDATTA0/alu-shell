@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$*" | tr -d "cC"
+cat "$1" | tr -d "cC"

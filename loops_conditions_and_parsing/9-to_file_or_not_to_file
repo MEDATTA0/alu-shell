@@ -12,6 +12,7 @@ if [ -n "$file" ]; then
 			echo "$file file is empty"
 		fi 
 		echo "[Anything]" 1>&2
+		exit 0
 	else
 		if [ -n "$(cat "$file")" ]; then
 			echo "$file file is not empty"

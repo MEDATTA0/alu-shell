@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 # This script shows the information about the "school" file
 
-file=$(find -name "school" -printf "%f")
+file=$(find . -name "school" -printf "%f")
 if [ -n "$file" ]; then
 	echo "$file file exists"
-	if [ -n "$(file "$file" | grep "directory")" ]; then
-		exit 0
+	if [ $(file "$file" | grep -q "directory") ]; then
+		if [ -n "$(ls "$file")" ]; then
+			echo "$file file is not empty"
+		else
+			echo "$file file is empty"
+		fi
 	else
 		if [ -n "$(cat "$file")" ]; then
 			echo "$file file is not empty"
@@ -14,6 +18,7 @@ if [ -n "$file" ]; then
 		fi
 		echo "$file is a regular file"
 	fi
+
 else
 	echo "school file does not exist"
 fi

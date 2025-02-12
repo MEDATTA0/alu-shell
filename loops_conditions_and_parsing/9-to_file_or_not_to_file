@@ -7,12 +7,12 @@ if [ -n "$file" ]; then
 	if [ -n "$(file "$file" | grep "directory")" ]; then
 		exit 0
 	else
-		echo "$file is a regular file"
 		if [ -n "$(cat "$file")" ]; then
 			echo "$file is not empty"
 		else
 			echo "$file is empty"
 		fi
+		echo "$file is a regular file"
 	fi
 else
 	echo "school does not exist"

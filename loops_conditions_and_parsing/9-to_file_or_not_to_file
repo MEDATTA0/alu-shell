@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script shows the information about the "school" file
+
+file=$(find -name "school" -printf "%f")
+if [ -n "$file" ]; then
+	echo "$file file exists"
+	if [ -n "$(file "$file" | grep "directory")" ]; then
+		exit 0
+	else
+		echo "$file is a regular file"
+		if [ -n "$(cat "$file")" ]; then
+			echo "$file is not empty"
+		else
+			echo "$file is empty"
+		fi
+	fi
+else
+	echo "school does not exist"
+fi

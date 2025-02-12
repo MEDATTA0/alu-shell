@@ -9,8 +9,8 @@ if [ -n "$file" ]; then
 			echo "$file file is not empty"
 		else
 			echo "$file file is empty"
-		fi
-		echo "[Anything]" 1>2 
+		fi 
+		echo "[Anything]" 1>&2
 	else
 		if [ -n "$(cat "$file")" ]; then
 			echo "$file file is not empty"

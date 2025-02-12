@@ -7,14 +7,22 @@
 
 i=1
 while [ $i -le 20 ]; do
-	if [[ $i == 4 ]]; then
-		echo "$i bad luck from China"
-	elif [[ $i == 9 ]]; then
-		echo "$i bad luck from Japan"
-	elif [[ $i == 17 ]]; then
-		echo "$i bad luck from Italy"
-	else
+	case	$i in
+		4)
+			echo "$i bad luck from China"
+		;;
+		
+		9)
+			echo "$i bad luck from Japan"
+		;;
+		
+		17)
+			echo "$i bad luck from Italy"
+		;;
+		
+		*)
 		echo "$i"
-	fi
+		;;
+	esac
 	((i++))
 done

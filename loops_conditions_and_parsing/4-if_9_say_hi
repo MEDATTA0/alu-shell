@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#This script prints "Hi" at the 9th iteration
+i=0
+while [ $i -lt 10 ]; do
+	if [[ $i == 8 ]]; then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	((i++))
+done

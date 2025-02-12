@@ -4,7 +4,8 @@
 file=$(find . -name "school" -printf "%f")
 if [ -n "$file" ]; then
 	echo "$file file exists"
-	if [ $(file "$file" | grep -q "directory") ]; then
+	exists=$(file "$file" | grep -q "directory")
+	if [ -n "$exists" ]; then
 		if [ -n "$(ls -1 "$file")" ]; then
 			echo "$file file is not empty"
 		else

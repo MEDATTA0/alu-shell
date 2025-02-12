@@ -1,2 +1,2 @@
 #!/bin/bash
-seq -f "%c%c" 97 122 97 122 | grep -v '^oo$'
+printf "%s\n" {a..z}{a..z} | grep -v '^oo$'

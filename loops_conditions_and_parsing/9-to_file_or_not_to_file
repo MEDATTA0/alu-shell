@@ -8,9 +8,9 @@ if [ -n "$file" ]; then
 		exit 0
 	else
 		if [ -n "$(cat "$file")" ]; then
-			echo "$file is not empty"
+			echo "$file file is not empty"
 		else
-			echo "$file is empty"
+			echo "$file file is empty"
 		fi
 		echo "$file is a regular file"
 	fi

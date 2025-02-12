@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#This script prints "Hi" at the 9th iteration
+#This script prints "Best School" and "Hi" at the 9th iteration
 i=0
 while [ $i -lt 10 ]; do
 	if [[ $i == 8 ]]; then
-		echo "Hi"
+		echo -e "Best School\nHi"
 	else
 		echo "Best School"
 	fi

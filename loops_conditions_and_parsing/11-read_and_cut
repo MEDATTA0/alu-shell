@@ -5,5 +5,5 @@
 #    Home directory path for the user
 
 while read line; do
-	echo $(cut -d":" -f1,3,6 <(echo $line))
+	cut -d":" -f1,3,6 <(echo "$line")
 done < /etc/passwd

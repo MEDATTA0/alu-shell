@@ -13,11 +13,11 @@ while [ $i -le 20 ]; do
 		;;
 		
 		9)
-			echo "$i\nbad luck from Japan"
+			echo -e "$i\nbad luck from Japan"
 		;;
 		
 		17)
-			echo "$i\nbad luck from Italy"
+			echo -e "$i\nbad luck from Italy"
 		;;
 		
 		*)

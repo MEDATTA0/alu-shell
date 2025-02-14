@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #The script prints "Best School" 10 times
-for {1..10}; do
+for i {1..10}; do
 	echo "Best School"
 	echo "$i" > /dev/null
 done

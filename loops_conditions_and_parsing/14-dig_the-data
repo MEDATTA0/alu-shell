@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script order from the greatest to the lowest number of occurences of IP addresses from the apache-access.log file.
+
+awk '{print $1, $9} ' apache-access.log | sort | uniq -c | sort -gr

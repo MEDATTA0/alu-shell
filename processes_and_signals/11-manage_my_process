@@ -1,54 +1,24 @@
 #!/usr/bin/env bash
 #
-PID_FILE="/var/run/my_process.pid"
-SCRIPT="manage_my_process"
+# Init script to manage manage_my_process
 
-start() {
-    if [ -f "$PID_FILE" ]; then
-        echo "manage_my_process is already running."
-    else
-        echo "Starting manage_my_process..."
-        # Start the process in the background
-        nohup "$SCRIPT" &
-
-        # Save the PID to the PID file
-        echo $! > "$PID_FILE"
-
-        echo "manage_my_process started"
-    fi
-}
-
-stop() {
-    if [ -f "$PID_FILE" ]; then
-        PID=$(cat "$PID_FILE")
-        echo "Stopping manage_my_process with PID $PID..."
-        kill "$PID"
-        rm -f "$PID_FILE"
-        echo "manage_my_process stopped"
-    else
-        echo "No process to stop."
-    fi
-}
-
-restart() {
-    stop
-    start
-    echo "manage_my_process restarted"
-}
-
-case "$1" in
+case $1 in
     start)
-        start
+        ./manage_my_process &
+        echo $! > /var/run/my_process.pid
+        echo "manage_my_process started"
         ;;
     stop)
-        stop
+        [ -f "/var/run/my_process.pid" ] && pkill -f ./manage_my_process
+        rm -f /var/run/my_process.pid
+        echo "manage_my_process stopped"
         ;;
     restart)
-        restart
+        $0 stop
+        $0 start
+        echo "manage_my_process restarted"
         ;;
     *)
         echo "Usage: manage_my_process {start|stop|restart}"
-        exit 1
         ;;
 esac
-

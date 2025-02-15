@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#
+ps a | grep bash | awk '{print $1,$5}'

@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 #
 # shellcheck disable=SC2009
-ps aux | grep bash | awk '{print $1,$5}'
+
+# Loop through all process directories in /proc
+for pid in /proc/[0-9]*/; do
+	#Extract the PID
+	pid_number=$(basename "$pid")
+
+	# Check if the process name contains "bash", the process name is stored in "comm" file
+	if [[ $(cat "$pid/comm" 2> /dev/null) == "*bash*" ]]; then
+		echo "$pid_number $(cat "$pid/comm")"
+	fi
+done

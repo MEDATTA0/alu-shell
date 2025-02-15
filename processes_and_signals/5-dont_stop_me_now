@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # shellcheck disable=SC2009
-process=$(ps a | grep "4-to_infinity_and_beyond")
+process=$(ps a | pgrep -fa "bash.*4-to_infinity_and_beyond")
 #echo "$process"
 read pid_number rest < <(echo "$process")
-#echo $pid_number
-kill $pid_number
+#echo "$pid_number"
+kill "$pid_number"

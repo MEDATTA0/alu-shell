@@ -3,6 +3,6 @@
 # shellcheck disable=SC2009
 process=$(ps a | pgrep -fa "bash.*4-to_infinity_and_beyond")
 #echo "$process"
-read pid_number rest < <(echo "$process")
+read -r pid_number rest < <(echo "$process")
 #echo "$pid_number"
 kill "$pid_number"

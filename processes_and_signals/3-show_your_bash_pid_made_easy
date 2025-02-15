@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #
 # shellcheck disable=SC2009
-ps a | grep bash | awk '{print $1,$5}'
+ps aux | grep bash | awk '{print $1,$5}'

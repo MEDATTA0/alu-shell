@@ -6,13 +6,8 @@
 for pid in /proc/[0-9]*/; do
 	#Extract the PID
 	pid_number=$(basename "$pid")
-	if [ $pid_number -eq 1 ]; then
-		continue;
-	
 	# Check if the process name contains "bash", the process name is stored in "comm" file
-	else 
-		if [[ $(cat "$pid/comm" 2> /dev/null) == "*bash*" ]]; then
-		echo "$pid_number $(cat "$pid/comm")"
-		fi
-	fi
+	#if [[ $(cat "$pid/comm" 2> /dev/null) == "*bash*" ]]; then
+	#	echo "$pid_number $(cat "$pid/comm")"
+	#fi
 done

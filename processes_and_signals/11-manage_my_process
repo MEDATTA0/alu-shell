@@ -22,5 +22,6 @@ case $1 in
         echo "Usage: manage_my_process {start|stop|restart}"
         ;;
 esac
-
-echo "manage_my_process $proc_status"
+if [ -n "$proc_status" ]; then
+	echo "manage_my_process $proc_status"
+fi

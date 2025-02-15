@@ -1,0 +1,54 @@
+#!/bin/bash
+
+PID_FILE="/var/run/my_process.pid"
+SCRIPT="manage_my_process"
+
+start() {
+    if [ -f "$PID_FILE" ]; then
+        echo "manage_my_process is already running."
+    else
+        echo "Starting manage_my_process..."
+        # Start the process in the background
+        nohup "$SCRIPT" &
+
+        # Save the PID to the PID file
+        echo $! > "$PID_FILE"
+
+        echo "manage_my_process started"
+    fi
+}
+
+stop() {
+    if [ -f "$PID_FILE" ]; then
+        PID=$(cat "$PID_FILE")
+        echo "Stopping manage_my_process with PID $PID..."
+        kill "$PID"
+        rm -f "$PID_FILE"
+        echo "manage_my_process stopped"
+    else
+        echo "No process to stop."
+    fi
+}
+
+restart() {
+    stop
+    start
+    echo "manage_my_process restarted"
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        exit 1
+        ;;
+esac
+

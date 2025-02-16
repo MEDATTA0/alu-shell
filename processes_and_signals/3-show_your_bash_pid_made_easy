@@ -2,13 +2,15 @@
 #
 # shellcheck disable=SC2009
 
+pgrep -af "bash"
+
 # Loop through all process directories in /proc
-for pid in /proc/[0-9]*/; do
+#for pid in /proc/[0-9]*/; do
 	#Extract the PID
 	#pid_number=$(basename "$pid")
-	echo "$pid" > /dev/null
+	#echo "$pid" > /dev/null
 	# Check if the process name contains "bash", the process name is stored in "comm" file
 	#if [[ $(cat "$pid/comm" 2> /dev/null) == "*bash*" ]]; then
 	#	echo "$pid_number $(cat "$pid/comm")"
 	#fi
-done
+#done
